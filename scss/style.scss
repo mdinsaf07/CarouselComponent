@@ -1,0 +1,40 @@
+$bg-color:black;
+$main-col:white;
+$secondary-col:gray;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding:0;
+}
+
+ img{
+     width:100%;
+     height:80%;
+ }
+main{
+    margin-top: 70px;
+}
+body{
+    background-color: $bg-color;
+}
+ .prev{
+     position: absolute;
+     top:45%;
+     left: 5px;
+    padding: 2px 2px 2px 2px;
+     background-color:$secondary-col ;
+     cursor: pointer;
+ }
+ .next{
+     position: absolute;
+     right:5px;
+     top:45%;
+     background-color:$secondary-col ;
+     padding: 2px 2px 2px 2px;
+     cursor: pointer;
+ }
+
+
+
+
