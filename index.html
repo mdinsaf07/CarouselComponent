@@ -4,47 +4,55 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Carousel Component</title>
 </head>
 
-<body onload="load(),myfunc()">
-    <!--Main starts-->
-    <main>
-        <div class="prev" onclick="carouselLeft()">&#8592</div>
-        <div id="c"></div>
-        <div class="next" onclick="carouselRight()">&#8594</div>
-    </main>
-        <!--Main ends-->
+<body onload="myfunc()">
+    <div class="slider">
+        <div class="slides">
+            <!--Radio buttons start-->
+            <input type="radio" name="radio-btn" id="radio1">
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <!--Radio buttons end-->
 
-    <script>
-        index = 0;
-        //Array of all the images
-        imgarr = [`<img src="./images/food1.jpg" alt="image1">`,
-            `<img src="./images/food2.jpg" alt="image2">`,
-            `<img src="./images/food3.jpg" alt="image3">`,
-            `<img src="./images/food4.jpg" alt="image4">`,
-        ];
+            <!--Slide images start-->
+            <div class="slide first"><img src="./images/food1.jpg" alt="image1"></div>
+            <div class="slide"><img src="./images/food2.jpg" alt="image1"></div>
+            <div class="slide"><img src="./images/food3.jpg" alt="image1"></div>
+            <div class="slide"><img src="./images/food4.jpg" alt="image1"></div>
+            <!--SLide images end-->
 
-        function load() {
-            document.getElementById("c").innerHTML = imgarr[index];
-        }
-        //On right click, this function is called.
-        function carouselRight() {
-            document.getElementById("c").innerHTML = imgarr[++index % imgarr.length];
-        }
-        //On left click, this function is called.
-        function carouselLeft() {
-            if (index == 0)
-                document.getElementById("c").innerHTML = imgarr[index = 3];
-            else {
-                document.getElementById("c").innerHTML = imgarr[--index % imgarr.length];
+            <!--Automatic nav starts-->
+            <div class="navigation-auto">
+                <div class="auto-btn1"></div>
+                <div class="auto-btn2"></div>
+                <div class="auto-btn3"></div>
+                <div class="auto-btn4 "></div>
+            </div>
+            <!--Automatic nav ends-->
+
+        </div>
+
+        <div class="navigation-manual">
+            <label for="radio1" class="manual-btn"></label>
+            <label for="radio2" class="manual-btn"></label>
+            <label for="radio3" class="manual-btn"></label>
+            <label for="radio4" class="manual-btn"></label>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        var counter = 1;
+        function myfunc() {
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if (counter > 4) {
+                counter = 1;
             }
 
-        }
-        //This function is called onload to switch slides every 5 seconds.
-        function myfunc() {
-            document.getElementById("c").innerHTML = imgarr[++index % imgarr.length];
             setTimeout(myfunc, 5000);
         }
 
